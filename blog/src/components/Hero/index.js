@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Logo } from '../Logo';
+import { Navbar } from '../Navbar';
 import { Card } from '../UI/Card';
 
 
@@ -11,7 +14,11 @@ export const Hero  = (_props) => {
   return(
     <div>
         <Card>
-            Dev
+          <div style = {{padding: '50px 0'}}>
+          <Logo/>
+          </div>
+           <Navbar/>
+           
             </Card>
       
 
