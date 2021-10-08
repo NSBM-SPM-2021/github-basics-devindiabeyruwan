@@ -4,6 +4,7 @@ import {Card} from '../UI/Card';
 import React, { useEffect, useState } from 'react';
 import blogPost from '../../data/blog.json';
 import { data } from 'browserslist';
+
 /**
 * @author
 * @function BlogPost
@@ -13,27 +14,28 @@ export const BlogPost = (_props) => {
    const[post,setPost] =useState({
     
     id: "",
-    blogCategory:"" ,
-    blogTitle :"" ,
-    slug:"" ,
-    postedOn:"" ,
-    author:"" ,
+    blogCategory:"",
+    blogTitle :"",
+    slug:"",
+    postedOn:"",
+    author:"",
     blogImage:"",
     blogText: "",
-   });
-     const[_postId,setPostId] =useState({});
+  });
+     const [_postId,setPostId] =useState('');
    
     
-  useEffect(()=>{
+    useEffect(()=>{
     const postId = _props.match.params.postId;
     console.log(data);
-    const post = blogPost.data.find(post=>post.id == postId);
+    const post=blogPost.data.find(post=>post.id==postId);
     setPost(post);
-    setPostId(postId);
-  },[post,_props.match.params.postId]);
-  if(post.blogImage == "")return null;
+    setPostId(postId)
+  }, [post, _props.match.params.postId]);
 
-  return(
+      if(post.blogImage =="") return null;
+
+ return(
      <div className="blogPostContainer">
        <Card>
          <div className="blogHeaders">
@@ -42,7 +44,7 @@ export const BlogPost = (_props) => {
          <span className="postedBy">Posted on {post.postedOn} By {post.author}</span>
          </div>
          <div className="postImageContainer">
-            <img  src={require('../../blogPostImages/' + post.blogImage).default} alt =""/>
+            <img src={require('../../blogPostImages/'+ post.blogImage).default} alt =""/>
 
          </div> 
 

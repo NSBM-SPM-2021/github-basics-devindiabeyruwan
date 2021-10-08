@@ -17,7 +17,7 @@ export const Sidebar = (_props) => {
     
     const posts = blogPost.data;
     setPosts(posts);
-  },posts);
+  }, [posts]);
 
   return(
     <div className="sidebarContainer">
@@ -57,12 +57,12 @@ export const Sidebar = (_props) => {
          {
            posts.map(post =>{
              return(
-               <NavLink to={'/post/${post.id}'} >
+               <NavLink key={post.id}  to={`/post/${post.id}`} >
                   <div className="recentPost">
                   <h3>{post.blogTitle}</h3>
                   <span>{post.postedOn}</span>
    
-            </div>
+                 </div>
 
                </NavLink>
               
