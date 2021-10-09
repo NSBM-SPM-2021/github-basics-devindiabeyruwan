@@ -13,27 +13,28 @@ import { data } from 'browserslist';
 export const BlogPost = (_props) => {
    const[post,setPost] =useState({
     
-    id: "",
-    blogCategory:"",
-    blogTitle :"",
-    slug:"",
-    postedOn:"",
-    author:"",
-    blogImage:"",
-    blogText: "",
+    id: "" ,
+    blogCategory: "" ,
+    blogTitle : "" ,
+    slug: "" ,
+    postedOn: "" ,
+    author: "" ,
+    blogImage: "" ,
+    blogText: ""
   });
-     const [_postId,setPostId] =useState('');
+     const [,setPostId] =useState('');
    
     
     useEffect(()=>{
     const postId = _props.match.params.postId;
     console.log(data);
-    const post=blogPost.data.find(post=>post.id==postId);
+    // eslint-disable-next-line
+    const post=blogPost.data.find(post=>post.id == postId);
     setPost(post);
     setPostId(postId)
   }, [post, _props.match.params.postId]);
-
-      if(post.blogImage =="") return null;
+      // eslint-disable-next-line
+      if(post.blogImage == "") return null;
 
  return(
      <div className="blogPostContainer">
