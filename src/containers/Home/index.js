@@ -5,8 +5,8 @@ import'./style.css';
  
 const Home = _props =>{
     return(
-        <div className="App">
-           
+        <div >
+           Home
         </div>
     );
 }
